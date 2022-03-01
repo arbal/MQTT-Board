@@ -1,5 +1,7 @@
 # develop stage
 FROM node:13.14-alpine as develop-stage
+RUN apk update && apk upgrade && \
+    apk add --no-cache bash git
 WORKDIR /app
 COPY package*.json ./
 RUN yarn global add @quasar/cli
